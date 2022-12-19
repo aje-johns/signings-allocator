@@ -83,7 +83,7 @@ button.addEventListener("click", () => {
   var userArray = getUserList(numberOfUsers);
   var inputUMR = textareaInput.value.split("\n");
   const userObj = createUserObj(userArray);
-  const umrWitNoBrokerCode = removeBrokerCode(inputUMR, 2);
+  const umrWitNoBrokerCode = removeBrokerCode(inputUMR, 5);
   const umrAndDupicate = getRepetetion(umrWitNoBrokerCode);
   allocate(umrAndDupicate, userObj);
   const finalAllocation = swap(userObj, inputUMR);
@@ -250,7 +250,7 @@ function swap(userObj, inputUMR) {
       let currentUmr = umr["umr"];
       console.log(`${currentUserName} has ${currentUmr} allocated`);
       tempUmrArray.forEach((entry) => {
-        let tempRegex = new RegExp(`^..${currentUmr}$`);
+        let tempRegex = new RegExp(`^.....${currentUmr}$`);
         if (tempRegex.test(entry)) {
           let ogArrayIndex = tempUmrArray.indexOf(entry);
           tempUmrArray[ogArrayIndex] = currentUserName;
